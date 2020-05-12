@@ -7,6 +7,9 @@
 - setup the app `docker-compose exec cezerin-api npm run setup admin@example.com http://localhost:3000`
 
 http://localhost:3000 - store
+
 http://localhost:3001 - api
+
 http://localhost:3002 - admin
+
 http://localhost:9001 - minio
