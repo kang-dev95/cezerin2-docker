@@ -1,4 +1,6 @@
 ### Cezerin 2 with Minio in Docker without nginx
+Part of https://github.com/Cezerin2/cezerin2 
+
 #### Instalation and run
 - run master-install.sh (pull latest master of cezerin and install deps)
 - run `docker-compose up -d`
