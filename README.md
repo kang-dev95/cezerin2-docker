@@ -8,6 +8,9 @@ Part of https://github.com/Cezerin2/cezerin2
 - go to minio and add collections `images, assets` with read policy
 - setup the app `docker-compose exec cezerin-api npm run setup admin@example.com http://localhost:3000`
 
+#### Run with File Watcher for Development
+`docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
+
 http://localhost:3000 - store
 
 http://localhost:3001 - api

@@ -4,11 +4,10 @@ services:
   cezerin-api:
     image: node:12.16.3
     working_dir: /data
-    environment:
-      - LANGUAGE=ru
     ports:
       - 3001:3001
     environment:
+      - LANGUAGE=ru
       - JWT_SECRET_KEY=jhasjdkfasljkdf
       - COOKIE_SECRET_KEY=ajsdhfjasdfk
       - DB_HOST=db
@@ -24,7 +23,7 @@ services:
       - ./cezerin2:/data
     depends_on:
       - db
-    command: bash -c "npm run compile || true && node -r esm build/index.js"
+    command: bash -c "npm run compile || true && npm run start"
     # command: bash -c "npm run compile && node -r esm build/index.js"
     # command: bash -c "rm -rf node_modules && npm i"
     # restart: always
@@ -45,7 +44,7 @@ services:
       - 3000:3000
     depends_on:
       - cezerin-api
-    command: bash -c "npm run build && node -r esm dist/server/index.js"
+    command: bash -c "npm run build && npm run start"
     # command: bash -c "rm -rf node_modules && npm i"
     # restart: always
 
