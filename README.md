@@ -1,14 +1,16 @@
 ### Cezerin 2 with Minio and Image Resize in Docker
 Part of https://github.com/Cezerin2/cezerin2 
 
-#### Installation and run on your VPS, VDS or LocalMachine
-- Install Docker and docker-compose
-- run master-install.sh (pull required version cezerin (api, store, admin) and install deps)
+#### Installation and run on your VPS, VDS or LocalMachine (Ubuntu example)
+- Install Docker `curl -fsSL https://get.docker.com -o get-docker.sh` and `sudo sh get-docker.sh`
+- Instal Docker Compose `sudo apt-get install docker-compose`
 - run `cp .env-example .env`
 - configure environment in `.env` file
+- NEED FIX: you also need configure `cezerin2-store/config/store.js`
+- run master-install.sh (pull required version cezerin (api, store, admin) and install deps)
 - run `docker-compose up -d`
 - check running in `docker ps`
-- go to minio and add collections `images, assets` **with read policy**
+- go to minio (http://your-server:9001) and add collections `images, assets` **with read policy**
 - setup the app `docker-compose exec cezerin-api npm run setup admin@example.com http://localhost:3000`
 
 #### Run with File Watcher for Development
