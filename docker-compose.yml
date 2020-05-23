@@ -4,8 +4,6 @@ services:
   cezerin-api:
     image: node:12.16.3
     working_dir: /data
-    ports:
-      - 3001:3001
     environment:
       - LANGUAGE=ru
       - JWT_SECRET_KEY=jhasjdkfasljkdf
@@ -16,17 +14,16 @@ services:
       - DB_USER=
       - DB_PASS=
       - ASSETS_TYPE=minio
-      - ASSETS_BASE_URL=http://localhost:9001
+      - ASSETS_BASE_URL=http://localhost:8887
       - MINIO_ACCESS_KEY=minio-access
       - MINIO_SECRET_KEY=minio-secret
+      - STORE_BASE_URL=http://localhost
+      - ADMIN_BASE_URL=http://localhost:3002
     volumes:
       - ./cezerin2:/data
     depends_on:
       - db
     command: bash -c "npm run compile || true && npm run start"
-    # command: bash -c "npm run compile && node -r esm build/index.js"
-    # command: bash -c "rm -rf node_modules && npm i"
-    # restart: always
 
   cezerin-store:
     image: node:12.16.3
@@ -40,13 +37,9 @@ services:
       - DISABLE_IMAGE_RESIZE=true
     volumes:
       - ./cezerin2-store:/data
-    ports:
-      - 3000:3000
     depends_on:
       - cezerin-api
     command: bash -c "npm run build && npm run start"
-    # command: bash -c "rm -rf node_modules && npm i"
-    # restart: always
 
   cezerin-admin:
     image: node:12.16.3
@@ -55,18 +48,12 @@ services:
       - LANGUAGE=ru
     volumes:
       - ./cezerin2-admin:/data
-    ports:
-      - 3002:3002
     depends_on:
       - cezerin-api
-    command: bash -c "npm run build && node ./node_modules/.bin/pm2 serve ./dist 3002 && tail -f /dev/null"
-    # command: bash -c "rm -rf node_modules && npm i && npm install --save pm2"
-    # restart: always
+    command: bash -c "npm run build && node ./node_modules/.bin/pm2 serve ./dist 3002 --no-daemon"
 
   db:
     image: mongo:3.4
-    ports:
-      - 27017:27017
     volumes:
       - ./__storage/mongo:/data/db
 
@@ -81,3 +68,20 @@ services:
       MINIO_ACCESS_KEY: "minio-access"
       MINIO_SECRET_KEY: "minio-secret"
     command: server /data
+
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - minio
+      - cezerin-admin
+      - cezerin-api
+      - cezerin-store
+    ports:
+      - 80:80
+      - 3001:3001
+      - 3002:3002
+      - 8887:8887
+    volumes: 
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites-available:/etc/nginx/sites-available
+      - ./__storage/nginx-cache:/tmp/nginx-images-cache2
