@@ -1,7 +1,7 @@
 #!/bin/bash
 git clone https://github.com/cezerin2/cezerin2
 cd cezerin2
-git checkout fbd272af95d96ae214118c1251267a859bccb7cc
+git checkout 86c08d3b14fd97f8df56443acaaa055bde53fcc5
 cd ..
 
 git clone https://github.com/cezerin2/cezerin2-admin
