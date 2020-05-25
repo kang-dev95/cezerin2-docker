@@ -5,6 +5,7 @@ services:
     image: node:12.16.3
     working_dir: /data
     environment:
+      - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - COOKIE_SECRET_KEY=${COOKIE_SECRET_KEY}
@@ -37,6 +38,7 @@ services:
     image: node:12.16.3
     working_dir: /data
     environment:
+      - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - COOKIE_SECRET_KEY=${COOKIE_SECRET_KEY}
@@ -53,6 +55,7 @@ services:
     image: node:12.16.3
     working_dir: /data
     environment:
+      - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
       - API_BASE_URL=${APP_DOMAIN}:3001/api/v1
     volumes:
@@ -64,6 +67,8 @@ services:
 
   db:
     image: mongo:3.4
+#    ports:
+#      - 27017:27017
     volumes:
       - ./__storage/mongo:/data/db
     restart: always
