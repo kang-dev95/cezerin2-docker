@@ -102,7 +102,7 @@ services:
   caddy:
     build: ./caddy
     environment:
-      - APP_DOMAIN=${APP_DOMAIN}:80
+      - APP_DOMAIN=${APP_DOMAIN}
       - APP_DOMAIN_API=${APP_DOMAIN_API}
       - APP_DOMAIN_ADMIN=${APP_DOMAIN_ADMIN}
       - APP_DOMAIN_STATIC=${APP_DOMAIN_STATIC}
