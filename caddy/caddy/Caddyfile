@@ -10,6 +10,7 @@ api.{$APP_DOMAIN}
 {
     proxy / cezerin-api:3001 {
         transparent
+        websocket
     }
 }
 
@@ -18,6 +19,7 @@ admin.{$APP_DOMAIN}
 {
     proxy / cezerin-admin:3002 {
         transparent
+        websocket
     }
 }
 
@@ -26,5 +28,6 @@ static.{$APP_DOMAIN}
 {
     proxy / cezerin-store:8887 {
         transparent
+        websocket
     }
 }
