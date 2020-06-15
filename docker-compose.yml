@@ -15,11 +15,11 @@ services:
       - DB_USER=
       - DB_PASS=
       - ASSETS_TYPE=minio
-      - ASSETS_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN}:8887
+      - ASSETS_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_STATIC}
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-      - STORE_BASE_URL=${APP_PROTOCOL}store.${APP_DOMAIN}
-      - ADMIN_BASE_URL=${APP_PROTOCOL}admin.${APP_DOMAIN}
+      - STORE_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN}
+      - ADMIN_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_ADMIN}
       - SMTP_HOST=${SMTP_HOST}
       - SMTP_PORT=${SMTP_PORT}
       - SMTP_SECURE=${SMTP_SECURE}
@@ -58,8 +58,8 @@ services:
     environment:
       - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
-      - API_BASE_URL=${APP_PROTOCOL}api.${APP_DOMAIN}/api/v1
-      - API_WEB_SOCKET_URL=wss://api.${APP_DOMAIN}
+      - API_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_API}/api/v1
+      - API_WEB_SOCKET_URL=wss://${APP_DOMAIN_API}
     volumes:
       - ./cezerin2-admin:/data
     depends_on:

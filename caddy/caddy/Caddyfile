@@ -6,7 +6,7 @@
 }
 
 localhost:3001,
-api.{$APP_DOMAIN}
+{$APP_DOMAIN_API}
 {
     proxy / cezerin-api:3001 {
         transparent
@@ -15,7 +15,7 @@ api.{$APP_DOMAIN}
 }
 
 localhost:3002,
-admin.{$APP_DOMAIN}
+{$APP_DOMAIN_ADMIN}
 {
     proxy / cezerin-admin:3002 {
         transparent
@@ -24,9 +24,9 @@ admin.{$APP_DOMAIN}
 }
 
 localhost:8887,
-static.{$APP_DOMAIN}
+{$APP_DOMAIN_STATIC}
 {
-    proxy / cezerin-store:8887 {
+    proxy / nginx:8887 {
         transparent
         websocket
     }
