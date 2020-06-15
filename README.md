@@ -1,4 +1,4 @@
-### Cezerin 2 with Minio and Image Resize in Docker
+### Cezerin 2 with Minio, Image Resize and Auto HTTPS in Docker
 Part of https://github.com/Cezerin2/cezerin2 
 
 #### Installation and run on your VPS, VDS or LocalMachine (Ubuntu example)
