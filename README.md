@@ -2,28 +2,27 @@
 Part of https://github.com/Cezerin2/cezerin2 
 
 #### Installation and run on your VPS, VDS or LocalMachine (Ubuntu example)
+- **BEFORE RUN APP** you must configure dns. You need make 4 A-record (its require for HTTPS)
+    - example.com
+    - api.example.com
+    - admin.example.com
+    - static.example.com
+
 - Install Docker `curl -fsSL https://get.docker.com -o get-docker.sh` and `sudo sh get-docker.sh`
-- Instal Docker Compose `sudo apt-get install docker-compose`
-- run `cp .env-example .env`
-- configure environment in `.env` file
-- NEED FIX: you also need configure `cezerin2-store/config/store.js`
-- run master-install.sh (pull required version cezerin (api, store, admin) and install deps)
-- run `docker-compose up -d`
-- check running in `docker ps`
-- go to minio (http://your-server:9001) and add collections `images, assets` **with read policy**
-- setup the app `docker-compose exec cezerin-api npm run setup admin@example.com http://localhost:3000`
+- Install Docker Compose `sudo apt-get install docker-compose`
+- Copy .env file and configure your app `cp .env-example .env`
+- Install all app and deps run `master-install.sh` (pull required version cezerin (api, store, admin) and install deps)
+- Run `docker-compose up -d`
+- Wait run your app, open in browser `https://example.com`
+- When app started - setup the app `docker-compose exec cezerin-api npm run setup admin@example.com http://localhost:3000`
 
-#### Run with File Watcher for Development
-`docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
 
-http://example.com:80 - store
+https://example.com - store
 
-http://example.com:3001 - api
+https://api.example.com - api
 
-http://example.com:3002 - admin
+https://admin.example.com - admin
 
-http://example.com:8887 - image resize service
+https://static.example.com - image resize service
 
-http://example.com:9001 - minio
-
-In development set `APP_DOMAIN` to `http://localhost`
+http://example.com:9001 - minio (HTTP only)

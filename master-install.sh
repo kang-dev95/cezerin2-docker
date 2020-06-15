@@ -23,5 +23,3 @@ docker-compose run --rm cezerin-store npm install --save-dev pm2
 
 docker-compose run --rm cezerin-admin npm install
 docker-compose run --rm cezerin-admin npm install --save-dev pm2
-
-docker-compose up -d
