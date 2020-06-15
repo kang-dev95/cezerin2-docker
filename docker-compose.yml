@@ -59,7 +59,7 @@ services:
       - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
       - API_BASE_URL=${APP_PROTOCOL}api.${APP_DOMAIN}/api/v1
-      - API_WEB_SOCKET_URL=${APP_PROTOCOL}api.${APP_DOMAIN}
+      - API_WEB_SOCKET_URL=wss://api.${APP_DOMAIN}
     volumes:
       - ./cezerin2-admin:/data
     depends_on:
