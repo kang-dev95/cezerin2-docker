@@ -1,0 +1,30 @@
+{$APP_DOMAIN}
+{
+    proxy / cezerin-store:3000 {
+        transparent
+    }
+}
+
+localhost:3001,
+api.{$APP_DOMAIN}
+{
+    proxy / cezerin-api:3001 {
+        transparent
+    }
+}
+
+localhost:3002,
+admin.{$APP_DOMAIN}
+{
+    proxy / cezerin-admin:3002 {
+        transparent
+    }
+}
+
+localhost:8887,
+static.{$APP_DOMAIN}
+{
+    proxy / cezerin-store:8887 {
+        transparent
+    }
+}
