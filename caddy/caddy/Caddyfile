@@ -5,7 +5,6 @@
     }
 }
 
-localhost:3001,
 {$APP_DOMAIN_API}
 {
     proxy / cezerin-api:3001 {
@@ -14,7 +13,6 @@ localhost:3001,
     }
 }
 
-localhost:3002,
 {$APP_DOMAIN_ADMIN}
 {
     proxy / cezerin-admin:3002 {
@@ -23,7 +21,6 @@ localhost:3002,
     }
 }
 
-localhost:8887,
 {$APP_DOMAIN_STATIC}
 {
     proxy / nginx:8887 {

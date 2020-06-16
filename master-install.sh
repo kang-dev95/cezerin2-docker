@@ -13,7 +13,7 @@ cd ..
 
 git clone https://github.com/capfsb/cezerin2-store
 cd cezerin2-store
-git checkout 1fda0948278cd4abf9a66c47c0f412b64e1a2af3
+git checkout 9a08e12bc36d4429937c35b976c69c1bd4284c46
 cd ..
 
 docker-compose run --rm cezerin-api npm install

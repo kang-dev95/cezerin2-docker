@@ -9,3 +9,7 @@ services:
 
   cezerin-admin:
     command: "npm run start -- --host 0.0.0.0"
+
+  caddy:
+    environment:
+      - APP_DOMAIN=${APP_DOMAIN}:80

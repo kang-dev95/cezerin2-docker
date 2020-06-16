@@ -44,7 +44,8 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - COOKIE_SECRET_KEY=${COOKIE_SECRET_KEY}
       - API_BASE_URL=http://cezerin-api:3001/api/v1
-      - AJAX_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_API}/ajax
+      - AJAX_BASE_URL=http://cezerin-api:3001/ajax
+      - CLIENT_AJAX_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_API}/ajax
     volumes:
       - ./cezerin2-store:/data
     depends_on:
