@@ -42,6 +42,6 @@ http://localhost:3001 - api
 
 http://localhost:3002 - admin
 
-https://localhost:8887 - image resize service
+http://localhost:8887 - image resize service
 
-http://localhost:9001 - minio (HTTP only)
+http://localhost:9001 - minio
