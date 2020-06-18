@@ -4,7 +4,6 @@ Part of https://github.com/Cezerin2/cezerin2
 #### Installation and run on your VPS, VDS (Ubuntu example)
 - **BEFORE RUN APP** you must configure dns. You need make 4 A-record (its require for HTTPS)
     - example.com
-    - api.example.com
     - admin.example.com
     - static.example.com
 
@@ -19,7 +18,9 @@ Part of https://github.com/Cezerin2/cezerin2
 
 https://example.com - store
 
-https://api.example.com - api
+https://example.com/api - api (server)
+
+https://example.com/ajax - api (client)
 
 https://admin.example.com - admin
 
@@ -38,7 +39,9 @@ http://example.com:9001 - minio (HTTP only)
 
 http://localhost - store
 
-http://localhost:3001 - api
+http://localhost/api - api (server)
+
+http://localhost/ajax - api (client)
 
 http://localhost:3002 - admin
 
