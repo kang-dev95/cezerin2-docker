@@ -3,11 +3,13 @@
     proxy / cezerin-store:3000 {
         transparent
     }
-}
 
-{$APP_DOMAIN_API}
-{
-    proxy / cezerin-api:3001 {
+    proxy /api cezerin-api:3001 {
+        transparent
+        websocket
+    }
+
+    proxy /ajax cezerin-api:3001 {
         transparent
         websocket
     }

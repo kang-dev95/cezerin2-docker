@@ -45,7 +45,7 @@ services:
       - COOKIE_SECRET_KEY=${COOKIE_SECRET_KEY}
       - API_BASE_URL=http://cezerin-api:3001/api/v1
       - AJAX_BASE_URL=http://cezerin-api:3001/ajax
-      - CLIENT_AJAX_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_API}/ajax
+      - CLIENT_AJAX_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN}/ajax
     volumes:
       - ./cezerin2-store:/data
     depends_on:
@@ -59,8 +59,8 @@ services:
     environment:
       - DEVELOPER_MODE=${DEVELOPER_MODE}
       - LANGUAGE=${LANGUAGE}
-      - API_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN_API}/api/v1
-      - API_WEB_SOCKET_URL=wss://${APP_DOMAIN_API}
+      - API_BASE_URL=${APP_PROTOCOL}${APP_DOMAIN}/api/v1
+      - API_WEB_SOCKET_URL=wss://${APP_DOMAIN}
     volumes:
       - ./cezerin2-admin:/data
     depends_on:
@@ -104,7 +104,6 @@ services:
     build: ./caddy
     environment:
       - APP_DOMAIN=${APP_DOMAIN}
-      - APP_DOMAIN_API=${APP_DOMAIN_API}
       - APP_DOMAIN_ADMIN=${APP_DOMAIN_ADMIN}
       - APP_DOMAIN_STATIC=${APP_DOMAIN_STATIC}
     volumes:
